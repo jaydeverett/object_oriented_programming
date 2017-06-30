@@ -1,6 +1,7 @@
 class Player
 
   attr_reader :lives
+  attr_reader :health_points
 
   def initialize(gold_coins, health_points, lives)
     @gold_coins = gold_coins
@@ -27,9 +28,20 @@ class Player
   end
 
   def do_battle(damage)
+    puts "You took #{damage} damage."
+    new_health_points = @health_points - damage
+    if new_health_points < 1
+      puts "You lost a life!"
+      @lives - 1
+      restart()
+    end
   end
 
+  def restart
 
+
+
+  end
 
 end
 
@@ -46,4 +58,6 @@ player1 = Player.new(@gold_coins, @health_points, @lives)
  player1.collect_treasure
  player1.collect_treasure
  player1.collect_treasure
-puts player1.lives
+puts "lives: #{player1.lives}"
+player1.do_battle(11)
+puts "lives: #{player1.lives}"
