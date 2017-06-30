@@ -17,7 +17,7 @@ class Cat
 
   def meow()
     puts "Hi! I'm #{@name}. I eat #{@preferred_food} and I like to eat
-    at #{@meal_time} sharp!"
+    at #{@meal_time - 12} sharp!"
   end
 
 
